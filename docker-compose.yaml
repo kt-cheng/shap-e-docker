@@ -16,4 +16,4 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    container_name: shap_e_task
+    container_name: shap_e_docker
