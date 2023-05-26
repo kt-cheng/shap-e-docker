@@ -1,0 +1,19 @@
+version: '3.8'
+
+x-driver: &driver
+  deploy:
+    resources:
+      reservations:
+        devices:
+        - driver: nvidia
+          device_ids: ['0']
+          capabilities: [gpu]
+
+services:
+  shap-e:
+    <<: *driver
+    image: shap_e_docker
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: shap_e_task
